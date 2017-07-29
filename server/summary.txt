@@ -1,0 +1,16 @@
+Middleware -> Used as a way to modify/authenticate the request before being responded to.
+authenticate.js middleware -> check header for auth token. Call findByToken, pass in token.
+
+Models -> User and Todo
+
+UserSchema.methods.toJSON -> toJSON method that picks out ID and Email.
+
+UserSchema.methods.generateAuthToken -> create token by passing user ID, access, and a secret.toString()
+after saving user, return token.
+
+UserSchema.findByToken -> takes in token. sets 'this' to User Model. decodes user token,
+then makes Database call.
+
+UserSchena.pre('save') -> Generating Salt to hash the password by combining reg password with salt.
+
+

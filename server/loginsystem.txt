@@ -1,0 +1,11 @@
+Creating User Login System; Authenticating with JWT and Passport.js:
+
+1) Creating Routes for Our Application:
+Express Router login Routes. user/register & user/login.
+Calls controller functions.
+
+2) Creating User Schema
+Username, Password.
+Encrypting User Password when registering -> bcrypt-nodejs. 
+BCrypt. Takes user password, generates salt, combines into hash. Sets user.password to hash before saving
+
