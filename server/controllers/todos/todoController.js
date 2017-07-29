@@ -2,14 +2,8 @@ const Todo = require('../../models/todo');
 const User = require('../../models/user');
 
 exports.getTodos = (req, res, next) => {
-		console.log(req.user);
-		Todo.find((err, todos) => {
-		if(err){
-			res.send(err);
-		} else {
-			res.json(todos);
-		}
-	})
+	console.log(req.user.todos);
+	res.json(req.user.todos);
 }
 
 exports.saveTodo = (req, res, next) => {

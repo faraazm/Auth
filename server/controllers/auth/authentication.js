@@ -3,6 +3,11 @@ const jwt = require('jsonwebtoken');
 
 const { secret } = require('../../config/config');
 
+function tokenForUser(user){
+	const timestamp = new Date().getTime();
+	return jwt.sign({ sub: user._id, iat: timestamp }, secret);
+}
+
 exports.register = (req, res, next) => {
 	const { username, password } = req.body;
 	const newUser = new User({ username, password })
@@ -45,7 +50,7 @@ exports.login = (req, res, next) => {
 				user.isProperPassword(password)
 					.then((isMatch) => {
 						if(isMatch){
-							const token = jwt.sign(user, secret, { expiresIn: '2 days'});
+							const token = tokenForUser(user);
 
 							res.json({
 								message: 'Authenticated',

@@ -8,8 +8,8 @@ function initPassport(passport){
 	opts.jwtFromRequest = ExtractJwt.fromHeader('authorization');
 	opts.secretOrKey = secret;
 
-	passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-		User.findOne({ id: jwt_payload._id })
+	passport.use(new JwtStrategy(opts, (payload, done) => {
+		User.findById(payload.sub)
 			.then((user) => {
 				return user
 				? done(null, user)
