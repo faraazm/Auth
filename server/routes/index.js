@@ -9,10 +9,10 @@ const passport = require('passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 
 router.get('/todos', requireAuth, Todo.getTodos);
-router.post('/todo', Todo.saveTodo);
-router.delete('/todo/:id', Todo.deleteTodo);
-router.put('/todo/:id', Todo.editTodo);
-router.put('/completetodo/:id', Todo.complete);
+router.post('/todo', requireAuth, Todo.saveTodo);
+router.delete('/todo/:id', requireAuth, Todo.deleteTodo);
+router.put('/todo/:id', requireAuth, Todo.editTodo);
+router.put('/completetodo/:id', requireAuth, Todo.complete);
 
 router.get('/home', requireAuth, Home.getHomePage);
 
