@@ -6,12 +6,14 @@ const mongoose = require('mongoose');
 const config = require('./config/config');
 const passport = require('passport');
 const cors = require('cors');
+const path = require('path');
 
 const todos = require('./routes/index');
 const users = require('./routes/users');
 
 const app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db);
