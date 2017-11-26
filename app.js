@@ -13,7 +13,7 @@ const users = require('./routes/users');
 
 const app = express();
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'client/public')));
+app.use(express.static(path.join(__dirname, 'client/src/index.js')));
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db);
