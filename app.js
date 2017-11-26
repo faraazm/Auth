@@ -13,7 +13,7 @@ const users = require('./routes/users');
 
 const app = express();
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'client/src/index.js')));
+app.use(express.static(path.join(__dirname, 'client/public/index.html')));
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db);
@@ -31,6 +31,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', todos);
 app.use('/users', users);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.set('port', (process.env.PORT || 8080));
 
