@@ -1,5 +1,4 @@
 # MERN Stack Authenticated Todo App
-===
 
 This is a Full Stack Web Application that uses the following technologies:
 - ReactJS & Redux
@@ -8,7 +7,6 @@ This is a Full Stack Web Application that uses the following technologies:
 - Passport Authentication using JWTs
 
 ## Running Client Side
-===
 
 cd into the client folder and run `npm install --save` to install dependencies.
 Run `npm start` to start the application.
@@ -41,6 +39,8 @@ Click [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows
 You must specify a `--dbpath` and run `mongod.exe` to complete the setup.
 To start MongoDB, run mongod.exe.
 
+For Example:
 `"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"`
 
+## Open the Application
 Open your browser at `localhost:3000` to view the application.
